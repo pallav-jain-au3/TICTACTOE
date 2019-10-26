@@ -1,0 +1,26 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 600px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+   
+    height: 150px;
+    border:1px solid black;
+  }
+
+  .green{
+      background: green;
+  }
+  .blue{
+      background: blue;
+  }
+  .yellow{
+      background: yellow;
+  }
+  
