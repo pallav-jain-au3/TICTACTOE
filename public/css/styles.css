@@ -8,19 +8,17 @@
   .column {
     display: flex;
     flex-direction: column;
+    font-size: 6rem;
+    text-align:center;
     flex: 1;
-   
     height: 150px;
     border:1px solid black;
   }
 
-  .green{
-      background: green;
+  .cross::before{
+    content: "X";
   }
-  .blue{
-      background: blue;
+
+  .zero::before{
+    content: "0";
   }
-  .yellow{
-      background: yellow;
-  }
-  
