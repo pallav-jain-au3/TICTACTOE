@@ -1,7 +1,4 @@
-addEventListenerOnBoxes()
-
-function addEventListenerOnBoxes(){
-    $('.column').on('click', function(e){
-        e.target.classList.add('cross');
-    })
-}
+console.log("hi")
+// import {Series} from '../../src/models/series'
+// let series = new Series()
+// console.log(series)

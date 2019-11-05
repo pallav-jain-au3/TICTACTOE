@@ -1,4 +1,4 @@
-export class ScoreBoard {
+export default class ScoreBoard {
     constructor() {
         this._P1Score = 0;
         this._P2Score = 0;

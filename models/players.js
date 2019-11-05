@@ -1,4 +1,4 @@
-export class Player {
+ export default class Player {
     constructor(playerId, name, boardSymbol, isComputer = false ){
         this._playerId = playerId,
         this._name = name;
@@ -18,5 +18,6 @@ export class Player {
         return this._isComputer
     }
 }
+
 
 
