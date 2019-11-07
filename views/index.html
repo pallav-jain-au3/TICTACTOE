@@ -14,24 +14,30 @@
 </head>
 
 <body>
-  <h1>Tic Tac Toe</h1>
+  <h1 class="text-center">Tic Tac Toe</h1>
 
 
-  <div class='container board'>
+  <div class='container board text-center'>
+    <div class="scores">
+  </div>
+  <div class="result"></div>
+  <div>
+    <button class="btn btn-dark" id = "restart">Restart Game</button>
+  </div>
     <div class="row">
-      <div class="column cross"></div>
-      <div class="column green"></div>
-      <div class="column yellow"></div>
+      <div id = "0" class="column"></div>
+      <div id = "1" class="column"></div>
+      <div id = "2" class="column"></div>
     </div>
     <div class="row">
-      <div class="column blue"></div>
-      <div class="column green"></div>
-      <div class="column yellow"></div>
+      <div id = "3" class="column"></div>
+      <div id = "4" class="column"></div>
+      <div id = "5" class="column"></div>
     </div>
     <div class="row">
-      <div class="column blue"></div>
-      <div class="column green"></div>
-      <div class="column yellow"></div>
+      <div id = "6" class="column"></div>
+      <div id = "7" class="column"></div>
+      <div id = "8" class="column"></div>
     </div>
   </div>
 
@@ -49,7 +55,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-  <script type = "module" src="/javascript/index.js"></script>
+  <script type = "module" src="/javascript/index.bundle.js"></script>
 
 </body>
 

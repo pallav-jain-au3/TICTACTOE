@@ -7,6 +7,7 @@ export default class Game {
         this.P2 = P2
         this.inProgress = true;
         this.winner = null;
+        this.winningSquare;
         this.movesMade = 0;
         this.currentTurn = this.P1;
         this.squares = new Array(9).fill().map(s => new Square())
@@ -39,11 +40,14 @@ export default class Game {
             let SqB = this.squares[b].value
             let SqC = this.squares[c].value
             if (SqA && SqA === SqB && SqB === SqC){
+
                 this.inProgress = false;
                 this.winner = SqA;
+                this.winningSquare = [a, b, c]
+               
             }
         })
-        if (this.movesMade == 0){
+        if (this.movesMade == 9){
             this.inProgress = false;
             this.winner = null;
         }

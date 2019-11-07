@@ -5,17 +5,19 @@ module.exports = {
         app: './src/index.js'
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, './public/javascript'),
         filename: 'index.bundle.js'
     },
     module: {
-        loaders: [{
-            test: /\.js?$/,
+        rules : [
+          // JavaScript/JSX Files
+          {
+            test: /\.jsx$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['env']
-            }
-        }]
+            use: ['babel-loader'],
+          }
+         
+        ]
     }
+      
 }
