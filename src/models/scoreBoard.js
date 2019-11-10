@@ -1,4 +1,4 @@
-class ScoreBoard {
+export default class ScoreBoard {
     constructor() {
         this._P1Score = 0;
         this._P2Score = 0;
@@ -19,5 +19,3 @@ class ScoreBoard {
         this._P2Score += 1;
     }
 }
-
-module.exports = ScoreBoard;
