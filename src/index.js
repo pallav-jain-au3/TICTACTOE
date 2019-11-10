@@ -1,6 +1,4 @@
-import {
-  Series
-} from './models/series';
+import {Series} from './models/series';
 let series = new Series();
 series.init();
 
@@ -56,17 +54,16 @@ function listenForClickOnBoxes() {
 }
 
 function checkForGameProgress() {
-  let result;
   if (series.game.inProgress == false) {
     if (series.game.winner != null) {
       series.game.winningSquare.forEach(square => {
         let box = document.getElementById(square);
         box.classList.add('highlighted');
-        series.updateScoreBoard();
-        displayScores();
-        removeEventListenerOnclick()
+       
       })
     }
+    series.updateScoreBoard();
+    displayScores();
     displayResult();
     return;
   }
@@ -83,10 +80,5 @@ function displayResult() {
     result = "Draw";
   }
   $('.result').html(`<h3>${result}</h3>`);
-  return;
-}
-
-function removeEventListenerOnclick() {
-  $(".column").unbind("click");
   return;
 }

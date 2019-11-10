@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "start": "node index"
+    "prestart": "npm run build",
+    "start": "node app"
   },
   "author": "",
   "license": "ISC",
