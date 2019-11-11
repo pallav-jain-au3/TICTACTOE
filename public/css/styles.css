@@ -2,6 +2,7 @@
 width : 500 px;
 margin: 0 auto;
 border: 1px solid #000;
+padding: 0;
 }
 
 #game-view-info{
@@ -11,20 +12,25 @@ border: 1px solid #000;
   font-weight: bold;
   text-align: center;
   background: #eee;
+  font-family: cursive;
 }
 
 #game-view-squares{
   width: 500px;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 25px;;
+  /* display: flex;
+  flex-wrap: wrap; */
+  padding: 25px;
+  background:blue;
   box-sizing: border-box;
 }
+
+/* .scores{
+  font-family: cursive;
+} */
 
  .column {
     width: 150px;
     height : 150px;
-    justify-content: center;
     box-sizing: border-box;
     font-family: cursive;
     font-size: 75px;
@@ -52,5 +58,6 @@ border: 1px solid #000;
     background-color: green;
     color: white;
   }
+
 
  

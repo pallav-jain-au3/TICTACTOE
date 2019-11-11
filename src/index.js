@@ -18,8 +18,16 @@ function listenForClickOnRestart() {
 
 function displayScores() {
   $('.scores').html(`
-  <h3>Player-1 :${series.scoreBoard._P1Score} </h3>
-  <h3>Player-2 :${series.scoreBoard._P2Score} </h3>
+  <div class = "row">
+   <div class = "col-6">
+     <p>Player-1 - ${series.scoreBoard._P1Score} </p>
+   </div>
+   <div class = "col-6">
+     <p>Player-2 - ${series.scoreBoard._P2Score} </p>
+    </div>
+  </div>
+
+ 
   `)
 }
 
@@ -65,10 +73,16 @@ function checkForGameProgress() {
     series.updateScoreBoard();
     displayScores();
     displayResult();
+    removeEventListenerFromSqaures()
     return;
   }
   return;
 
+}
+
+function removeEventListenerFromSqaures(){
+  $('.column').unbind('click');
+  return
 }
 
 function displayResult() {
