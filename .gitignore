@@ -1,1 +1,3 @@
 node_modules/
+/public/javascript/
+.idea/workspace.xml

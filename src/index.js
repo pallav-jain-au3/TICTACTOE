@@ -1,13 +1,22 @@
 import {Series} from './models/series';
-let series = new Series();
-series.init();
+import PlayersConfig from "./models/PlayersConfig";
 
-startGame()
+
+let playerConfig = new PlayersConfig();
+let series;
+
+startSeries();
+
+function startSeries() {
+   series = new Series(playerConfig);
+   startGame();
+}
 
 function startGame() {
   listenForClickOnBoxes();
   displayScores();
   listenForClickOnRestart();
+  listenForPlayerConfigChanges();
 }
 
 function listenForClickOnRestart() {
@@ -16,10 +25,22 @@ function listenForClickOnRestart() {
   })
 }
 
+function changePlayerConfig(newConfig) {
+  playerConfig = newConfig;
+  startSeries();
+}
+
 function displayScores() {
+  console.log("displaying scores")
   $('.scores').html(`
-  <h3>Player-1 :${series.scoreBoard._P1Score} </h3>
-  <h3>Player-2 :${series.scoreBoard._P2Score} </h3>
+  <div class = "row">
+   <div class = "col-6">
+     <p>${series.p1.name}  ${series.scoreBoard._P1Score} </p>
+   </div>
+   <div class = "col-6">
+     <p>${series.p2.name}  ${series.scoreBoard._P2Score} </p>
+    </div>
+  </div>
   `)
 }
 
@@ -32,7 +53,6 @@ function restartGame() {
 
 function clearResult() {
   $('.result').html('');
-  return;
 }
 
 function listenForClickOnBoxes() {
@@ -51,6 +71,10 @@ function listenForClickOnBoxes() {
     }
     checkForGameProgress();
   })
+}
+
+function listenForPlayerConfigChanges() {
+    // this should be called from configs page and only when there is any actual changes.
 }
 
 function checkForGameProgress() {
@@ -74,7 +98,7 @@ function checkForGameProgress() {
 function displayResult() {
   let result;
   if (series.game.winner) {
-    result = series.game.winner == 'X' ? "Player-1 Wins" : "Player-2 Wins"
+    result = series.game.winner == series.p1 ? "Player-1 Wins" : "Player-2 Wins"
 
   } else {
     result = "Draw";
