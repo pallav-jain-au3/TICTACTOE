@@ -2,29 +2,30 @@
 width : 500 px;
 margin: 0 auto;
 border: 1px solid #000;
+padding: 0;
 }
 
 #game-view-info{
-  padding: 15px;
+  padding: 1rem;
   font-family: sans-serif;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   background: #eee;
+  font-family: cursive;
+  margin-bottom: 3rem ;
 }
 
-#game-view-squares{
-  width: 500px;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 25px;;
+ #game-view-sqaures{
+  
+  
   box-sizing: border-box;
-}
+  margin-bottom: 3rem ;
+} 
 
  .column {
     width: 150px;
     height : 150px;
-    justify-content: center;
     box-sizing: border-box;
     font-family: cursive;
     font-size: 75px;
@@ -37,7 +38,7 @@ border: 1px solid #000;
 .column:nth-child(-n + 6){
   border-bottom: 15px solid rgba(165, 42, 42, 0.158);
 }
-.column:nth-child(3n+ 1), .column:nth-child(3n+ 2){
+.column:nth-child(3n + 1), .column:nth-child(3n+ 2){
   border-right: 15px solid brown;
 }
   .cross::before{
@@ -52,5 +53,6 @@ border: 1px solid #000;
     background-color: green;
     color: white;
   }
+
 
  
