@@ -6,27 +6,22 @@ padding: 0;
 }
 
 #game-view-info{
-  padding: 15px;
+  padding: 1rem;
   font-family: sans-serif;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   background: #eee;
   font-family: cursive;
+  margin-bottom: 3rem ;
 }
 
-#game-view-squares{
-  width: 500px;
-  /* display: flex;
-  flex-wrap: wrap; */
-  padding: 25px;
-  background:blue;
+ #game-view-sqaures{
+  
+  
   box-sizing: border-box;
-}
-
-/* .scores{
-  font-family: cursive;
-} */
+  margin-bottom: 3rem ;
+} 
 
  .column {
     width: 150px;
@@ -43,7 +38,7 @@ padding: 0;
 .column:nth-child(-n + 6){
   border-bottom: 15px solid rgba(165, 42, 42, 0.158);
 }
-.column:nth-child(3n+ 1), .column:nth-child(3n+ 2){
+.column:nth-child(3n + 1), .column:nth-child(3n+ 2){
   border-right: 15px solid brown;
 }
   .cross::before{
