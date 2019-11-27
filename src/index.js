@@ -1,6 +1,11 @@
-import {Series} from './models/series';
-let series = new Series();
-series.init();
+import {
+  Series
+} from './models/series';
+import PlayerConfig from './models/PlayerConfig'
+let playerConfig = new PlayerConfig()
+let series = new Series(playerConfig);
+
+
 
 startGame()
 
@@ -8,6 +13,7 @@ function startGame() {
   listenForClickOnBoxes();
   displayScores();
   listenForClickOnRestart();
+  displayStatus();
 }
 
 function listenForClickOnRestart() {
@@ -26,8 +32,6 @@ function displayScores() {
      <p>Player-2 - ${series.scoreBoard._P2Score} </p>
     </div>
   </div>
-
- 
   `)
 }
 
@@ -39,7 +43,7 @@ function restartGame() {
 }
 
 function clearResult() {
-  $('.result').html('');
+  $('.status').html('');
   return;
 }
 
@@ -58,6 +62,7 @@ function listenForClickOnBoxes() {
       square.classList.add('zero');
     }
     checkForGameProgress();
+    displayStatus();
   })
 }
 
@@ -67,12 +72,11 @@ function checkForGameProgress() {
       series.game.winningSquare.forEach(square => {
         let box = document.getElementById(square);
         box.classList.add('highlighted');
-       
+
       })
     }
     series.updateScoreBoard();
     displayScores();
-    displayResult();
     removeEventListenerFromSqaures()
     return;
   }
@@ -80,19 +84,25 @@ function checkForGameProgress() {
 
 }
 
-function removeEventListenerFromSqaures(){
+function removeEventListenerFromSqaures() {
   $('.column').unbind('click');
   return
 }
 
-function displayResult() {
-  let result;
-  if (series.game.winner) {
-    result = series.game.winner == 'X' ? "Player-1 Wins" : "Player-2 Wins"
-
+function displayStatus() {
+  let status;
+  if (series.game.inProgress) {
+    status = series.game.currentTurn.name + ' Turns'
   } else {
-    result = "Draw";
+    if (series.game.winner) {
+      console.log(series.game.winner)
+      console.log("boardSymbol", series.game.winner._boardSymbol)
+      status =  series.game.winner.name + " Wins"
+
+    } else {
+      status = "Draw";
+    }
   }
-  $('.result').html(`<h3>${result}</h3>`);
+  $('.status').html(`<h3>${status}</h3>`);
   return;
 }

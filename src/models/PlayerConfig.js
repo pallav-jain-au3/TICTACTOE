@@ -9,3 +9,4 @@ export default class PlayerConfig {
         this.Player2 = new Player("P2", player2Name, player2BoardSymbol, isPlayer2Computer);
     }
 }
+

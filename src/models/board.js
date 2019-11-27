@@ -1,17 +1,18 @@
 import GameState from './GameState';
 
 
-export class Board{
+export default class Board{
     constructor(){
-        this.squares = new Array.fill(0);
+        this.squares = Array(9).fill(0);
         this.winningSquares ;
         this.movedMade = 0;
-        this.gameState = GameState.InProgress
+        this.gameState = GameState.InProgress;
+      
     }
     makeMove(i, isP1){
         this.squares[i] = isP1 ? 1 : -1
         this.movedMade++
-        this.updateGameState(IsP1);
+        this.updateGameStatus(isP1);
     }
     updateGameStatus(isP1){
         const winningCombinations = [
@@ -32,7 +33,8 @@ export class Board{
             let SqC = this.squares[c];
             if (SqA + SqB + SqC == expectedWinningSum){
                 this.gameState = GameState.Won;
-                this.winningSquares = [a, b, c]
+                this.winningSquares = [a, b, c];
+                return
             }
         })
         if (this.movedMade == 9 && this.gameState == GameState.InProgress){
